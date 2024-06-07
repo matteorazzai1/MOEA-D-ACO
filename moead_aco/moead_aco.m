@@ -28,24 +28,24 @@ end
 
 %setting of group
 
-psi=0.0:(1/(K-1)):1.0; %weight for the aggregation function
+csi=0.0:(1/(K-1)):1.0; %weight for the aggregation function
 
 %then we cluster lambda in K groups
 
 for i=1:K
-    psi_weights{i}=[psi(i),1-psi(i)];
+    csi_weights{i}=[csi(i),1-csi(i)];
 end
 
 lambda_group={[]};
 for j=1:numel(lambda_weights)
     for i=1:K
         
-        min_dist=pdist2(lambda_weights{j},psi_weights{1});
+        min_dist=pdist2(lambda_weights{j},csi_weights{1});
         belonging_group=1;
-        if(pdist2(lambda_weights{j},psi_weights{i})<min_dist)
+        if(pdist2(lambda_weights{j},csi_weights{i})<min_dist)
             
             belonging_group=i;
-            min_dist=pdist2(lambda_weights{j},psi_weights{i});
+            min_dist=pdist2(lambda_weights{j},csi_weights{i});
         end
 
     end

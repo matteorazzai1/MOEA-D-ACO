@@ -18,7 +18,7 @@ for i = 1 : numel(ant_best_tour) % for each ant that just generated an optimal n
         sum=0;
 
         for l=1:size(new_sol_EP,2)
-            sum=sum+lambda_weights{antSelected}(l)*colony.ant(antSelected).fitness(l);  %lambda_weights{i}(l) is the weight of the l-th objective and graph.edges(j,k,l) is the value of the l-th objective of the edge beteween node j and k
+            sum=sum+lambda_weights{antSelected}(l)*colony.ant(antSelected).fitness(l);  %lambda_weights{i}(l) is the weight of the l-th objective function
         end
         
         tau(group,currentNode , nextNode) = tau(group,currentNode , nextNode)  + 1/sum;
